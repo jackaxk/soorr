@@ -8,55 +8,65 @@
         body {
             margin: 0;
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            background: linear-gradient(135deg, #FFD1DC, #C8E6FF);
+            background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            overflow: hidden;
         }
 
         h1 {
             font-size: 4rem;
-            color: #FF69B4;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-            animation: bounce 1.5s infinite;
+            color: #FF6F91;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+            animation: bounce 2s infinite;
         }
 
         p {
             font-size: 1.5rem;
             color: #555;
             margin: 20px 0;
+            max-width: 80%;
+        }
+
+        .heart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         .heart {
             position: relative;
-            width: 150px;
-            height: 150px;
-            background-color: #FF69B4;
+            width: 100px;
+            height: 100px;
+            background-color: #FF6F91;
             transform: rotate(-45deg);
-            animation: pulse 2s infinite;
+            animation: float 3s infinite ease-in-out;
         }
 
         .heart::before,
         .heart::after {
             content: '';
             position: absolute;
-            width: 150px;
-            height: 150px;
-            background-color: #FF69B4;
+            width: 100px;
+            height: 100px;
+            background-color: #FF6F91;
             border-radius: 50%;
         }
 
         .heart::before {
-            top: -75px;
+            top: -50px;
             left: 0;
         }
 
         .heart::after {
             top: 0;
-            left: 75px;
+            left: 50px;
         }
 
         footer {
@@ -66,7 +76,7 @@
         }
 
         footer a {
-            color: #FF69B4;
+            color: #FF6F91;
             text-decoration: none;
             font-weight: bold;
         }
@@ -80,26 +90,70 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-15px);
             }
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1) rotate(-45deg);
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(-45deg);
             }
             50% {
-                transform: scale(1.1) rotate(-45deg);
+                transform: translateY(-20px) rotate(-45deg);
+            }
+            100% {
+                transform: translateY(0) rotate(-45deg);
+            }
+        }
+
+        .cloud {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .cloud:nth-child(1) {
+            width: 150px;
+            height: 80px;
+            top: 10%;
+            left: 15%;
+            animation: move 6s infinite ease-in-out;
+        }
+
+        .cloud:nth-child(2) {
+            width: 200px;
+            height: 100px;
+            top: 20%;
+            left: 70%;
+            animation: move 8s infinite ease-in-out;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(20px);
+            }
+            100% {
+                transform: translateX(0);
             }
         }
     </style>
 </head>
 <body>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
     <h1>Sorry My Love</h1>
-    <div class="heart"></div>
-    <p>You mean everything to me. Please forgive me. ❤️</p>
+    <p>You are the sunshine of my life, and I’m deeply sorry. Please forgive me. 🌸</p>
+    <div class="heart-container">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
     <footer>
-        Made with ❤️ for you by <a href="#">someone who truly cares</a>
+        Made with ❤️ by someone who loves you endlessly, your husband.
     </footer>
 </body>
 </html>
